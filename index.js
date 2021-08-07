@@ -20,6 +20,7 @@ import path from "path"
 console.log("[▪] >>> file");
 console.log("[▣ ] >>> folder");
 
+// -----------uncomment the below code to call the recursive  function to display the directory-------
 
 // function c(tpath){
 //     var display=[];
@@ -49,8 +50,17 @@ console.log("[▣ ] >>> folder");
 // }
 // return display;
 // }
+
+//your return value of  function call is sent within the below reponse to GET from browser
+
+// app.get("/",(req,res)=>{res.send({display:c(testpath)})});
+
 // // ------- the output is diplayed as array of nested objects
 // console.log(c(testpath));
+
+
+
+// -------sample display is shown below ---------
 
 let sampleArr=[
     '{"file":" [▪] ☛  4+1.PNG"}',
@@ -60,9 +70,7 @@ let sampleArr=[
 
 app.get("/",(req,res)=>{res.send({message:"sample display",display:sampleArr})});
 
-//your return value of  function call is sent within the below reponse to GET from browser
 
-// app.get("/",(req,res)=>{res.send({display:c(testpath)})});
 
 
 
