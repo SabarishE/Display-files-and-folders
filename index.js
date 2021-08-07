@@ -1,6 +1,16 @@
+import express from "express";
+
+const PORT = process.env.PORT || 5000;
+
+const app=express();
+
+app.use(express.json());
+// app.use(cors());
+app.listen(PORT,console.log("server started"));
+
 //-------- your direct path goes here (in testpath variable as a string)
 
-const testpath="C:/Users/hp/Desktop";
+const testpath="C:/Users/hp/Desktop/System design";
 
 //-------- importing Node.js file system
 
@@ -41,6 +51,20 @@ return display;
 }
 // ------- the output is diplayed as array of nested objects
 console.log(c(testpath));
+
+let sampleArr=[
+    '{"file":" [▪] ☛  4+1.PNG"}',
+    '{"file":" [▪] ☛  monolith vs MSA.PNG"}',
+    '{"folder":{" [▣ ] ☛  test folder":["{"file":" [▪] ☛  ddd.txt"}","{"folder":{" [▣ ] ☛  demo folder":["{"file":" [▪] ☛  context.PNG"}"]}}","{"folder":{" [▣ ] ☛  demo2 folder":["{"file":" [▪] ☛  testtext.txt"}"]}}"]}}'
+  ]
+
+app.get("/",(req,res)=>{res.send({message:"sample display",display:sampleArr})});
+
+//your return value of  function call is sent within the below reponse to GET from browser
+
+// app.get("/",(req,res)=>{res.send({display:c(testpath)})});
+
+
 
 console.log("[▪] >>> file");
 console.log("[▣ ] >>> folder");
